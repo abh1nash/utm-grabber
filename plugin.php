@@ -22,6 +22,6 @@ define('ABHINASH_UTM_PLUGIN_URL', plugin_dir_url(__FILE__));
 use Abhinash\UtmGrabber\Core;
 
 // Enable during development
-define('UTM_PLUGIN_DEV_MODE', true);
+define('UTM_PLUGIN_DEV_MODE', false);
 
 $init = new Core();
