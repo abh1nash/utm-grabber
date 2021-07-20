@@ -34,7 +34,6 @@ window.onload = () => {
         detectedParams[param] = urlParams.get(param);
       }
     });
-    console.log(detectedParams);
   }
 
   function setData() {

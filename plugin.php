@@ -3,7 +3,7 @@
  * Plugin Name:       UTM Grabber
  * Plugin URI:        https://abhinash.net/
  * Description:       Add UTM parameters to links
- * Version:           0.0.0.1
+ * Version:           0.0.0.2
  * Requires at least: 5.3
  * Author:            Abhinash Khatiwada
  * Author URI:        https://abhinash.net/
