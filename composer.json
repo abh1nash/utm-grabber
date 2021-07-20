@@ -1,0 +1,17 @@
+{
+    "name": "abhinash/utm-grabber",
+    "type": "project",
+    "license": "GPL",
+    "autoload": {
+        "psr-4": {
+            "Abhinash\\UtmGrabber\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abhinsh Khatiwada",
+            "email": "me@abhinash.net"
+        }
+    ],
+    "require": {}
+}
