@@ -10,7 +10,7 @@
  * Text Domain:       abhninash-utm-grabber
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * GitHub Plugin URI: https://github.com/abh1nash/fifit-elements
+ * GitHub Plugin URI: https://github.com/abh1nash/utm-grabber
  */
 
 if ( !defined( 'ABSPATH' ) ) exit;
