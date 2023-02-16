@@ -1,0 +1,49 @@
+version: "3.1"
+services:
+  db:
+    image: mysql
+    networks:
+      - wpsite
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    volumes:
+      - dbdata:/var/lib/mysql
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin
+    networks:
+      - wpsite
+    ports:
+      - 3333:80
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - 80:80
+    volumes:
+      # This only mounts the current working dir to the WP plugin dir.
+      # This means that all other WP files are copied everytime after docker-compose down.
+      - ./:/var/www/html/wp-content/plugins/${PLUGIN_NAME}
+      # Remove dev dirs from the mount.
+      - plugin_src:/var/www/html/wp-content/plugins/${PLUGIN_NAME}/src/
+      - plugin_node_modules:/var/www/html/wp-content/plugins/${PLUGIN_NAME}/node_modules/
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: "true"
+    networks:
+      - wpsite
+networks:
+  wpsite:
+volumes:
+  dbdata:
+  plugin_src:
+  plugin_node_modules:
+  server_data:

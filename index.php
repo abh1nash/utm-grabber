@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Plugin Name:       UTM Grabber
  * Plugin URI:        https://abhinash.net/
  * Description:       Add UTM parameters to links
- * Version:           0.0.0.2
+ * Version:           0.0.0.3
  * Requires at least: 5.3
  * Author:            Abhinash Khatiwada
  * Author URI:        https://abhinash.net/
@@ -13,9 +14,9 @@
  * GitHub Plugin URI: https://github.com/abh1nash/utm-grabber
  */
 
-if ( !defined( 'ABSPATH' ) ) exit;
+if (!defined('ABSPATH')) exit;
 
-require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+require plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 
 define('ABHINASH_UTM_PLUGIN_URL', plugin_dir_url(__FILE__));
 
