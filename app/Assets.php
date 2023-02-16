@@ -2,18 +2,22 @@
 
 namespace Abhinash\UtmGrabber;
 
-class Assets {
-    
-    public function __construct() {
+class Assets
+{
+
+    public function __construct()
+    {
         $this->load();
     }
 
-    private function load() {
+    private function load()
+    {
         add_action('wp_enqueue_scripts', [$this, 'enqueuer']);
     }
 
-    public function enqueuer() {
-        if( UTM_PLUGIN_DEV_MODE ) {
+    public function enqueuer()
+    {
+        if (UTM_PLUGIN_DEV_MODE) {
             wp_enqueue_script(
                 'abhinash-utm-grabber',
                 'http://localhost:1234/main.js',
@@ -21,8 +25,7 @@ class Assets {
                 \filemtime(plugin_dir_path(__DIR__) . 'dist/main.js'),
                 false
             );
-        }
-        else {
+        } else {
             wp_enqueue_script(
                 'abhinash-utm-grabber',
                 ABHINASH_UTM_PLUGIN_URL . 'dist/main.js',
@@ -31,5 +34,12 @@ class Assets {
                 false
             );
         }
+        wp_localize_script(
+            "abhinash-utm-grabber",
+            'abhinash_utm_plugin_data',
+            array(
+                'selector' => get_option('ABHINASH_UTM_GRABBER_DATA')
+            )
+        );
     }
 }
